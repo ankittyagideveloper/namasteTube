@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/namasteTube/precache-manifest.8663562bd2eca8926a8f04eb5f31f661.js"
+  "/namasteTube/precache-manifest.021a179c0a915e6e0a5fda5471005cd8.js"
 );
 
 self.addEventListener('message', (event) => {
