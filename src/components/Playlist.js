@@ -27,7 +27,7 @@ function Playlist({ vidsData, selected, setSelected }) {
         marginTop: "100px",
         overflow: "auto",
         position: "relative",
-        maxHeight: 300,
+        maxHeight: 400,
         fontSize: "1.5rem",
       }}
     >

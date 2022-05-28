@@ -78,7 +78,6 @@ const ResponsiveAppBar = () => {
     <AppBar position="fixed" style={{ background: "#f2cc25", color: "#000" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* <img src={Logo} alt="logo" style={{ height: "50px" }} /> */}
           <Typography
             variant="h6"
             noWrap
