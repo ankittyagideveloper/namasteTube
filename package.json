@@ -1,5 +1,6 @@
 {
   "name": "namastejavascript",
+  "homepage": "https://ankittyagi206.github.io/namasteJS",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,7 +9,6 @@
     "@mui/icons-material": "^5.6.2",
     "@mui/material": "^5.6.4",
     "axios": "^0.27.2",
-    "gh-pages": "^4.0.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-player": "^1.11.1",
@@ -16,6 +16,8 @@
     "react-scripts": "3.0.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
