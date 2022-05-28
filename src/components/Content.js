@@ -33,6 +33,7 @@ const Content = () => {
       })
       .catch((error) => {
         console.log(error);
+        setLoading(true);
       });
   };
   const videoControler = (e) => {
@@ -44,22 +45,26 @@ const Content = () => {
   //GET https://youtube.googleapis.com/youtube/v3/playlistItems?part=contentDetails%2Csnippet&maxResults=25&playlistId=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP&key=[YOUR_API_KEY] HTTP/1.1
   //AIzaSyA5S3uU7htP_rqhVWmwNPT6CWGMuDF2hLw
   return loading ? (
-    <div>loading...</div>
+    <div>loading... </div>
   ) : (
     <Container maxWidth="md">
-      <div className="player-wrapper">
-        <ReactPlayer
-          className="react-player"
-          url={url}
-          muted={false}
-          playing={false}
-          controls={true}
-          width="100%"
-          height="100%"
-        />
-        {/* )) 
+      {vids.length === 0 ? (
+        <h1>No Data Found</h1>
+      ) : (
+        <div className="player-wrapper">
+          <ReactPlayer
+            className="react-player"
+            url={url}
+            muted={false}
+            playing={false}
+            controls={true}
+            width="100%"
+            height="100%"
+          />
+          {/* )) 
          } */}
-      </div>
+        </div>
+      )}
       <Playlist vidsData={vids} setSelected={(e) => videoControler(e)} />
     </Container>
   );
