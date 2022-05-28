@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/namasteTube/static/css/main.c53019a0.chunk.css",
+    "main.js": "/namasteTube/static/js/main.02f25ce3.chunk.js",
+    "main.js.map": "/namasteTube/static/js/main.02f25ce3.chunk.js.map",
+    "runtime~main.js": "/namasteTube/static/js/runtime~main.9aaf03f3.js",
+    "runtime~main.js.map": "/namasteTube/static/js/runtime~main.9aaf03f3.js.map",
+    "static/js/2.093fd4c4.chunk.js": "/namasteTube/static/js/2.093fd4c4.chunk.js",
+    "static/js/2.093fd4c4.chunk.js.map": "/namasteTube/static/js/2.093fd4c4.chunk.js.map",
+    "index.html": "/namasteTube/index.html",
+    "precache-manifest.9e952583c41039388e94bd8d22350461.js": "/namasteTube/precache-manifest.9e952583c41039388e94bd8d22350461.js",
+    "service-worker.js": "/namasteTube/service-worker.js",
+    "static/css/main.c53019a0.chunk.css.map": "/namasteTube/static/css/main.c53019a0.chunk.css.map",
+    "static/media/Logo.jpg": "/namasteTube/static/media/Logo.5e93cacb.jpg"
+  }
+}
