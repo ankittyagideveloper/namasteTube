@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "092bd2c8af044319e696d92769b54c8d",
+    "revision": "e98fd0c35c7872d93c10563d41f2926b",
     "url": "/namasteTube/index.html"
   },
   {
