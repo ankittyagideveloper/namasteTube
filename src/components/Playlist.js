@@ -27,11 +27,10 @@ function Playlist({ vidsData, selected, setSelected }) {
         marginTop: "100px",
         overflow: "auto",
         position: "relative",
-        maxHeight: 500,
+        maxHeight: 300,
         fontSize: "1.5rem",
       }}
     >
-      {console.log(vidsData)}
       {vidsData.map((x, i) => {
         return (
           <>
@@ -42,13 +41,19 @@ function Playlist({ vidsData, selected, setSelected }) {
             >
               <ListItemAvatar>
                 <Avatar
-                  alt="Remy Sharp"
+                  alt="thumbnail"
                   src={x.snippet.thumbnails.default.url}
                 />
               </ListItemAvatar>
-              <ListItemText primary={x.snippet.title} />
+              <ListItemText
+                primary={
+                  <div style={{ fontSize: "1.5rem", fontWeight: 500 }}>
+                    {x.snippet.title}
+                  </div>
+                }
+              />
               <ListItemIcon>
-                <StarIcon />
+                <StarIcon style={{ fontSize: "2rem" }} />
               </ListItemIcon>
             </ListItemButton>
             <Divider variant="inset" component="li" />

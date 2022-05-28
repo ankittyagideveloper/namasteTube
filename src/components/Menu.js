@@ -83,7 +83,7 @@ const ResponsiveAppBar = () => {
             variant="h6"
             noWrap
             component="a"
-            href="/namasteJavascript"
+            href="/namasteTube"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -92,7 +92,7 @@ const ResponsiveAppBar = () => {
               textDecoration: "none",
             }}
           >
-            Namaste JavaScript
+            <div style={{ fontSize: "2rem" }}>Namaste JavaScript</div>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -132,14 +132,14 @@ const ResponsiveAppBar = () => {
             </Menu>
           </Box>
 
-          <Link to="/namasteJavascript">
+          <Link to="/namasteTube">
             <img src={Logo} alt="logo" style={{ height: "50px" }} />
           </Link>
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="/namasteJavascript"
+            href="/namasteTube"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -149,7 +149,7 @@ const ResponsiveAppBar = () => {
               textDecoration: "none",
             }}
           >
-            Namaste JavaScript
+            <div style={{ fontSize: "2rem" }}>Namaste JavaScript</div>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
