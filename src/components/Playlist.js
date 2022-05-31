@@ -7,6 +7,7 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  TextField,
   ThemeProvider,
   Typography,
 } from "@mui/material";
@@ -45,6 +46,7 @@ const BootstrapTooltip = styled(({ className, ...props }) => (
 }));
 function Playlist({ vidsData, selected, setSelected, saveBookMark, bookMark }) {
   const [selectedVid, setSelectedVid] = useState(0);
+
   const handleSelection = (i, x) => {
     setSelectedVid(i);
     setSelected(x.snippet.resourceId.videoId);
@@ -57,7 +59,7 @@ function Playlist({ vidsData, selected, setSelected, saveBookMark, bookMark }) {
           width: "100%",
           maxWidth: 900,
           bgcolor: "background.paper",
-          marginTop: "100px",
+          marginTop: "5px",
           overflow: "auto",
           position: "relative",
           maxHeight: 400,

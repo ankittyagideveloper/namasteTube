@@ -1,14 +1,21 @@
-import { Container } from "@mui/material";
+import { Container, InputAdornment, TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import axios from "axios";
 import "./Content.css";
 import Playlist from "./Playlist";
+import SearchIcon from "@mui/icons-material/Search";
 
+const styles = {
+  textField: {
+    fontSize: 50,
+  },
+};
 const Content = () => {
   const [vids, setvids] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState();
+  const [search, setSearch] = useState("");
   const [url, setUrl] = useState("");
   const [bookMark, setBookMark] = useState([]);
   useEffect(() => {
@@ -74,8 +81,30 @@ const Content = () => {
          } */}
         </div>
       )}
+      <TextField
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <SearchIcon style={{ fontSize: "2rem" }} />
+            </InputAdornment>
+          ),
+        }}
+        style={{ marginTop: "100px" }}
+        onChange={(e) => setSearch(e.target.value)}
+        value={search}
+        id="outlined-basic"
+        label="Search..."
+        variant="outlined"
+        fullWidth
+        sx={{ m: 1 }}
+        inputProps={{
+          style: { fontSize: 15 },
+        }}
+      />
       <Playlist
-        vidsData={vids}
+        vidsData={vids.filter((x) =>
+          x.snippet.title.toLowerCase().includes(search.toLowerCase())
+        )}
         setSelected={(e) => videoControler(e)}
         saveBookMark={(e) => saveBookMark(e)}
         bookMark={bookMark}
