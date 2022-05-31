@@ -1,4 +1,9 @@
-import { Container, InputAdornment, TextField } from "@mui/material";
+import {
+  Container,
+  InputAdornment,
+  TextField,
+  ThemeProvider,
+} from "@mui/material";
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import axios from "axios";
@@ -6,9 +11,24 @@ import "./Content.css";
 import Playlist from "./Playlist";
 import SearchIcon from "@mui/icons-material/Search";
 import CircularProgress from "@mui/material/CircularProgress";
+import { createTheme } from "@mui/material/styles";
 
 //get bookmarked items from localStorage
-
+const theme = createTheme({
+  // status: {
+  //   danger: "#e53e3e",
+  // },
+  palette: {
+    primary: {
+      main: "#FFCC00",
+      //  darker: "#053e85",
+    },
+    // neutral: {
+    //   main: "#64748B",
+    //   contrastText: "#fff",
+    // },
+  },
+});
 const getBookMarks = () => {
   debugger;
   let bookmarks = localStorage.getItem("bookMarks");
@@ -76,68 +96,71 @@ const Content = () => {
 
   //GET https://youtube.googleapis.com/youtube/v3/playlistItems?part=contentDetails%2Csnippet&maxResults=25&playlistId=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP&key=[YOUR_API_KEY] HTTP/1.1
   //AIzaSyA5S3uU7htP_rqhVWmwNPT6CWGMuDF2hLw
-  return loading ? (
-    <div
-      style={{
-        height: "100vh",
-        width: "100%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <CircularProgress />
-    </div>
-  ) : (
-    <Container maxWidth="md">
-      {vids.length === 0 ? (
-        <h1>No Data Found</h1>
-      ) : (
-        <div className="player-wrapper">
-          <ReactPlayer
-            className="react-player"
-            url={url}
-            muted={false}
-            playing={false}
-            controls={true}
-            width="100%"
-            height="100%"
-          />
-          {/* )) 
-         } */}
+  return (
+    <ThemeProvider theme={theme}>
+      {loading ? (
+        <div
+          style={{
+            height: "100vh",
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <CircularProgress color="primary" />
         </div>
+      ) : (
+        <Container maxWidth="md">
+          {vids.length === 0 ? (
+            <h1>No Data Found</h1>
+          ) : (
+            <div className="player-wrapper">
+              <ReactPlayer
+                className="react-player"
+                url={url}
+                muted={false}
+                playing={false}
+                controls={true}
+                width="100%"
+                height="100%"
+              />
+              {/* )) 
+         } */}
+            </div>
+          )}
+          <TextField
+            id="outlined-multiline-flexible"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon style={{ fontSize: "2rem" }} />
+                </InputAdornment>
+              ),
+            }}
+            style={{ marginTop: "100px" }}
+            onChange={(e) => setSearch(e.target.value)}
+            value={search}
+            label={false}
+            placeholder="Search..."
+            variant="standard"
+            fullWidth
+            sx={{ m: 1 }}
+            inputProps={{
+              style: { fontSize: 15 },
+            }}
+          />
+          <Playlist
+            vidsData={vids.filter((x) =>
+              x.snippet.title.toLowerCase().includes(search.toLowerCase())
+            )}
+            setSelected={(e) => videoControler(e)}
+            saveBookMark={(e) => saveBookMark(e)}
+            bookMark={bookMark}
+          />
+        </Container>
       )}
-      <TextField
-        id="outlined-multiline-flexible"
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <SearchIcon style={{ fontSize: "2rem" }} />
-            </InputAdornment>
-          ),
-        }}
-        style={{ marginTop: "100px" }}
-        onChange={(e) => setSearch(e.target.value)}
-        value={search}
-        label={false}
-        InputLabelProps={{ shrink: false }}
-        placeholder="Search..."
-        variant="outlined"
-        fullWidth
-        sx={{ m: 1 }}
-        inputProps={{
-          style: { fontSize: 15 },
-        }}
-      />
-      <Playlist
-        vidsData={vids.filter((x) =>
-          x.snippet.title.toLowerCase().includes(search.toLowerCase())
-        )}
-        setSelected={(e) => videoControler(e)}
-        saveBookMark={(e) => saveBookMark(e)}
-        bookMark={bookMark}
-      />
-    </Container>
+    </ThemeProvider>
   );
 };
 
