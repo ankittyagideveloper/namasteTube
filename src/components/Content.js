@@ -10,9 +10,19 @@ const Content = () => {
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState();
   const [url, setUrl] = useState("");
+  const [bookMark, setBookMark] = useState([]);
   useEffect(() => {
     getData();
   }, []);
+  const saveBookMark = (e) => {
+    if (bookMark.includes(e)) {
+      console.log(bookMark, e);
+      let newArr = bookMark.filter((curr) => curr !== e);
+      setBookMark(newArr);
+    } else {
+      setBookMark((curr) => [...curr, e]);
+    }
+  };
 
   const getData = () => {
     axios
@@ -37,7 +47,6 @@ const Content = () => {
       });
   };
   const videoControler = (e) => {
-    debugger;
     console.log(e, "hellooooooooooooooooooo");
     setUrl("https://www.youtube.com/watch?v=" + e);
   };
@@ -65,7 +74,12 @@ const Content = () => {
          } */}
         </div>
       )}
-      <Playlist vidsData={vids} setSelected={(e) => videoControler(e)} />
+      <Playlist
+        vidsData={vids}
+        setSelected={(e) => videoControler(e)}
+        saveBookMark={(e) => saveBookMark(e)}
+        bookMark={bookMark}
+      />
     </Container>
   );
 };
