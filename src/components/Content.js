@@ -76,7 +76,17 @@ const Content = () => {
   //GET https://youtube.googleapis.com/youtube/v3/playlistItems?part=contentDetails%2Csnippet&maxResults=25&playlistId=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP&key=[YOUR_API_KEY] HTTP/1.1
   //AIzaSyA5S3uU7htP_rqhVWmwNPT6CWGMuDF2hLw
   return loading ? (
-    <div>loading... </div>
+    <div
+      style={{
+        height: "100vh",
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      loading...
+    </div>
   ) : (
     <Container maxWidth="md">
       {vids.length === 0 ? (
