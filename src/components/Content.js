@@ -5,6 +5,7 @@ import axios from "axios";
 import "./Content.css";
 import Playlist from "./Playlist";
 import SearchIcon from "@mui/icons-material/Search";
+import CircularProgress from "@mui/material/CircularProgress";
 
 //get bookmarked items from localStorage
 
@@ -85,7 +86,7 @@ const Content = () => {
         justifyContent: "center",
       }}
     >
-      loading...
+      <CircularProgress />
     </div>
   ) : (
     <Container maxWidth="md">
