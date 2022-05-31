@@ -91,7 +91,7 @@ function Playlist({ vidsData, selected, setSelected, saveBookMark, bookMark }) {
                   <BootstrapTooltip title="BookMark">
                     <StarIcon
                       color={
-                        bookMark.includes(x.contentDetails.videoId)
+                        bookMark && bookMark.includes(x.contentDetails.videoId)
                           ? "primary"
                           : ""
                       }

@@ -6,6 +6,18 @@ import "./Content.css";
 import Playlist from "./Playlist";
 import SearchIcon from "@mui/icons-material/Search";
 
+//get bookmarked items from localStorage
+
+const getBookMarks = () => {
+  debugger;
+  let bookmarks = localStorage.getItem("bookMarks");
+  if (bookmarks) {
+    return JSON.parse(localStorage.getItem("bookMarks"));
+  } else {
+    return [];
+  }
+};
+
 const styles = {
   textField: {
     fontSize: 50,
@@ -17,10 +29,13 @@ const Content = () => {
   const [selected, setSelected] = useState();
   const [search, setSearch] = useState("");
   const [url, setUrl] = useState("");
-  const [bookMark, setBookMark] = useState([]);
+  const [bookMark, setBookMark] = useState(getBookMarks());
   useEffect(() => {
     getData();
   }, []);
+  useEffect(() => {
+    localStorage.setItem("bookMarks", JSON.stringify(bookMark));
+  }, [bookMark]);
   const saveBookMark = (e) => {
     if (bookMark.includes(e)) {
       console.log(bookMark, e);
@@ -82,6 +97,7 @@ const Content = () => {
         </div>
       )}
       <TextField
+        id="outlined-multiline-flexible"
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -92,8 +108,9 @@ const Content = () => {
         style={{ marginTop: "100px" }}
         onChange={(e) => setSearch(e.target.value)}
         value={search}
-        id="outlined-basic"
-        label="Search..."
+        label={false}
+        InputLabelProps={{ shrink: false }}
+        placeholder="Search..."
         variant="outlined"
         fullWidth
         sx={{ m: 1 }}
