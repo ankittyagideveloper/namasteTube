@@ -13,8 +13,8 @@ function App() {
       <Menu />
       <Routes>
         <Route path="/namasteTube" element={<PlayerPlayList />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/namasteTube/contact" element={<Contact />} />
+        <Route path="/namasteTube/about" element={<About />} />
       </Routes>
     </>
   );
