@@ -14,8 +14,8 @@ function App() {
       <Routes>
         <Route path="/" element={<PlayerPlayList />} />
         <Route path="/namasteTube" element={<PlayerPlayList />} />
-        <Route path="/namasteTube/contact" element={<Contact />} />
-        <Route path="/namasteTube/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </>
   );
