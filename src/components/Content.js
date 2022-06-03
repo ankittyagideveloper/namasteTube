@@ -30,7 +30,6 @@ const theme = createTheme({
   },
 });
 const getBookMarks = () => {
-  debugger;
   let bookmarks = localStorage.getItem("bookMarks");
   if (bookmarks) {
     return JSON.parse(localStorage.getItem("bookMarks"));
@@ -93,7 +92,9 @@ const Content = () => {
     console.log(e, "hellooooooooooooooooooo");
     setUrl("https://www.youtube.com/watch?v=" + e);
   };
-
+  const loader = () => {
+    return <CircularProgress color="primary" />;
+  };
   //GET https://youtube.googleapis.com/youtube/v3/playlistItems?part=contentDetails%2Csnippet&maxResults=25&playlistId=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP&key=[YOUR_API_KEY] HTTP/1.1
   //AIzaSyA5S3uU7htP_rqhVWmwNPT6CWGMuDF2hLw
   return (
@@ -108,7 +109,7 @@ const Content = () => {
             justifyContent: "center",
           }}
         >
-          <CircularProgress color="primary" />
+          {loader()}
         </div>
       ) : (
         <Container maxWidth="md">

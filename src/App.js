@@ -2,15 +2,21 @@ import Menu from "./components/Menu";
 import React from "react";
 import reactDom from "react-dom";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link, Routes } from "react-router-dom";
 import PlayerPlayList from "./components/playerPlayList";
+import Contact from "./components/Contact";
+import About from "./components/About";
 
 function App() {
   return (
-    <div>
+    <>
       <Menu />
-      <PlayerPlayList />
-    </div>
+      <Routes>
+        <Route path="/" element={<PlayerPlayList />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </>
   );
 }
 

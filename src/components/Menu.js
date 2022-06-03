@@ -1,41 +1,4 @@
-// import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
-// import React, { useState } from "react";
-// import MenuIcon from "@mui/icons-material/Menu";
-// import Drawer from "./Drawer";
-// import Logo from "../Assets/Logo.jpg";
-
-// function Menu() {
-//   const [open, setOpen] = useState(false);
-//   return (
-//     <div>
-//       <AppBar position="fixed" style={{ background: "#f2cc25", color: "#000" }}>
-//         <Toolbar variant="dense">
-//           {/* <IconButton
-//             edge="start"
-//             color="inherit"
-//             aria-label="menu"
-//             sx={{ mr: 2 }}
-//           >
-//             <MenuIcon onClick={() => setOpen(true)} />
-//           </IconButton> */}
-//           <img src={Logo} alt="logo" style={{ height: "50px" }} />
-//           <Typography
-//             variant="h6"
-//             style={{ fontWeight: 700 }}
-//             color="inherit"
-//             component="div"
-//           >
-//             Namaste JavaScript
-//           </Typography>
-//         </Toolbar>
-//       </AppBar>
-//       <Drawer open={open} />
-//     </div>
-//   );
-// }
-
-// export default Menu;
-import * as React from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -52,12 +15,14 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { Image } from "@mui/icons-material";
 import Logo from "../Assets/Logo.jpg";
 import { Link } from "react-router-dom";
+import SideMenu from "./Drawer";
 
-//const pages = ["Home", "About", "Contact"];
+const pages = ["Home", "About", "Contact"];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [open, setOpen] = useState(false);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -73,25 +38,38 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const handlePage = (page) => {
+    console.log(page);
+    if (page === "About") {
+      return <Link to="/about"></Link>;
+    }
+  };
+  const sideMenu = () => {
+    setOpen(true);
+  };
 
   return (
     <AppBar position="fixed" style={{ background: "#f2cc25", color: "#000" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/namasteTube"
             sx={{
-              mr: 2,
               display: { xs: "none", md: "flex" },
               fontWeight: 700,
-              color: "inherit",
+              color: "#000",
               textDecoration: "none",
             }}
           >
-            <div style={{ fontSize: "2rem" }}>Namaste JavaScript</div>
+            <Link
+              to="/"
+              style={{
+                fontSize: "2rem",
+                textDecoration: "none",
+                color: "#000",
+              }}
+            >
+              Namaste JavaScript
+            </Link>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -103,64 +81,48 @@ const ResponsiveAppBar = () => {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon />
+              <MenuIcon onClick={() => sideMenu()} />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {/* {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))} */}
-            </Menu>
+
+            <SideMenu open={open} setOpen={(e) => setOpen(e)} />
           </Box>
 
-          <Link to="/namasteTube">
+          <Link to="/">
             <img src={Logo} alt="logo" style={{ height: "50px" }} />
           </Link>
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="/namasteTube"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
               fontWeight: 700,
-              color: "inherit",
               textDecoration: "none",
             }}
           >
-            <div style={{ fontSize: "2rem" }}>Namaste JavaScript</div>
+            <Link
+              to="/"
+              style={{
+                fontSize: "2rem",
+                textDecoration: "none",
+                color: "#000",
+              }}
+            >
+              Namaste JavaScript
+            </Link>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {/* {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ color: "#000", display: "block", fontWeight: 500 }}
+            {pages.map((page) => (
+              <Link
+                to={page === "Home" ? "/" : `/${page}`}
+                style={{ textDecoration: "none", color: "#000", margin: "1em" }}
               >
                 {page}
-              </Button>
-            ))} */}
+              </Link>
+            ))}
           </Box>
         </Toolbar>
       </Container>
