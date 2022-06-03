@@ -61,7 +61,7 @@ const ResponsiveAppBar = () => {
             }}
           >
             <Link
-              to="/"
+              to="/namasteTube"
               style={{
                 fontSize: "2rem",
                 textDecoration: "none",
@@ -87,7 +87,7 @@ const ResponsiveAppBar = () => {
             <SideMenu open={open} setOpen={(e) => setOpen(e)} />
           </Box>
 
-          <Link to="/">
+          <Link to="/namasteTube">
             <img src={Logo} alt="logo" style={{ height: "50px" }} />
           </Link>
           <Typography
@@ -103,7 +103,7 @@ const ResponsiveAppBar = () => {
             }}
           >
             <Link
-              to="/"
+              to="/namasteTube"
               style={{
                 fontSize: "2rem",
                 textDecoration: "none",

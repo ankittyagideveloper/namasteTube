@@ -12,7 +12,7 @@ function App() {
     <>
       <Menu />
       <Routes>
-        <Route path="/" element={<PlayerPlayList />} />
+        <Route path="/namasteTube" element={<PlayerPlayList />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
       </Routes>
