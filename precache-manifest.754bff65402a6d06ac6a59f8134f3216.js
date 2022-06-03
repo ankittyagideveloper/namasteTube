@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e2791ed2fdec8bc79cc7708fea136558",
+    "revision": "e3d8c64b208ff2da2fb769dd4661782a",
     "url": "/namasteTube/index.html"
   },
   {
-    "revision": "63b80002e34545e0a581",
+    "revision": "08c9b3b8b5809b7ba168",
     "url": "/namasteTube/static/css/main.19caf827.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/namasteTube/static/js/2.4daedc2c.chunk.js"
   },
   {
-    "revision": "63b80002e34545e0a581",
-    "url": "/namasteTube/static/js/main.c390cf51.chunk.js"
+    "revision": "08c9b3b8b5809b7ba168",
+    "url": "/namasteTube/static/js/main.58e807c9.chunk.js"
   },
   {
     "revision": "525822182bd22c0f4fae",
