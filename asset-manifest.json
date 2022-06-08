@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/namasteTube/static/css/main.19caf827.chunk.css",
+    "main.css": "/namasteTube/static/css/main.f41fffa0.chunk.css",
     "main.js": "/namasteTube/static/js/main.0f9e493f.chunk.js",
     "main.js.map": "/namasteTube/static/js/main.0f9e493f.chunk.js.map",
     "runtime~main.js": "/namasteTube/static/js/runtime~main.9aaf03f3.js",
@@ -8,9 +8,9 @@
     "static/js/2.4daedc2c.chunk.js": "/namasteTube/static/js/2.4daedc2c.chunk.js",
     "static/js/2.4daedc2c.chunk.js.map": "/namasteTube/static/js/2.4daedc2c.chunk.js.map",
     "index.html": "/namasteTube/index.html",
-    "precache-manifest.5c68f4143422f2a3af3d3a51285a8ad7.js": "/namasteTube/precache-manifest.5c68f4143422f2a3af3d3a51285a8ad7.js",
+    "precache-manifest.8a57fa18ba95888c16135ffa125a08c0.js": "/namasteTube/precache-manifest.8a57fa18ba95888c16135ffa125a08c0.js",
     "service-worker.js": "/namasteTube/service-worker.js",
-    "static/css/main.19caf827.chunk.css.map": "/namasteTube/static/css/main.19caf827.chunk.css.map",
+    "static/css/main.f41fffa0.chunk.css.map": "/namasteTube/static/css/main.f41fffa0.chunk.css.map",
     "static/media/Logo.jpg": "/namasteTube/static/media/Logo.5e93cacb.jpg"
   }
 }
