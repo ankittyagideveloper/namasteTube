@@ -58,7 +58,7 @@ const Content = () => {
   }, [bookMark]);
   const saveBookMark = (e) => {
     if (bookMark.includes(e)) {
-      console.log(bookMark, e);
+      console.info(bookMark, e);
       let newArr = bookMark.filter((curr) => curr !== e);
       setBookMark(newArr);
     } else {
@@ -72,7 +72,6 @@ const Content = () => {
         "https://youtube.googleapis.com/youtube/v3/playlistItems?part=contentDetails%2Csnippet&maxResults=25&playlistId=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP&key=AIzaSyA5S3uU7htP_rqhVWmwNPT6CWGMuDF2hLw"
       )
       .then((response) => {
-        console.log(response);
         if (response.data) {
           let { items } = response.data;
           setvids(items);
@@ -84,12 +83,11 @@ const Content = () => {
         }
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
         setLoading(true);
       });
   };
   const videoControler = (e) => {
-    console.log(e, "hellooooooooooooooooooo");
     setUrl("https://www.youtube.com/watch?v=" + e);
   };
   const loader = () => {

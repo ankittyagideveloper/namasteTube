@@ -39,7 +39,6 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(null);
   };
   const handlePage = (page) => {
-    console.log(page);
     if (page === "About") {
       return <Link to="/about"></Link>;
     }
