@@ -45,10 +45,12 @@ const styles = {
 };
 const Content = () => {
   const [vids, setvids] = useState([]);
+  const [season2, setSeason2] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState();
   const [search, setSearch] = useState("");
   const [url, setUrl] = useState("");
+  const [season2Url, setseason2Url] = useState("");
   const [bookMark, setBookMark] = useState(getBookMarks());
   useEffect(() => {
     getData();
@@ -67,18 +69,28 @@ const Content = () => {
   };
 
   const getData = () => {
+    let axiosPlayList1 = axios.get(
+      "https://youtube.googleapis.com/youtube/v3/playlistItems?part=contentDetails%2Csnippet&maxResults=25&playlistId=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP&key=AIzaSyA5S3uU7htP_rqhVWmwNPT6CWGMuDF2hLw"
+    );
+    let axiosPlayList2 = axios.get(
+      "https://youtube.googleapis.com/youtube/v3/playlistItems?part=contentDetails%2Csnippet&maxResults=25&playlistId=PLlasXeu85E9eWOpw9jxHOQyGMRiBZ60aX&key=AIzaSyA5S3uU7htP_rqhVWmwNPT6CWGMuDF2hLw"
+    );
     axios
-      .get(
-        "https://youtube.googleapis.com/youtube/v3/playlistItems?part=contentDetails%2Csnippet&maxResults=25&playlistId=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP&key=AIzaSyA5S3uU7htP_rqhVWmwNPT6CWGMuDF2hLw"
-      )
-      .then((response) => {
+      .all([axiosPlayList1, axiosPlayList2])
+      .then(([response, response2]) => {
         if (response.data) {
           let { items } = response.data;
+          let season2 = response2.data.items;
           setvids(items);
+          setSeason2(season2);
           setLoading(false);
           setUrl(
             "https://www.youtube.com/watch?v=" +
               items[0].snippet.resourceId.videoId
+          );
+          setseason2Url(
+            "https://www.youtube.com/watch?v=" +
+              season2[0].snippet.resourceId.videoId
           );
         }
       })
@@ -153,6 +165,20 @@ const Content = () => {
             vidsData={vids.filter((x) =>
               x.snippet.title.toLowerCase().includes(search.toLowerCase())
             )}
+            setSelected={(e) => videoControler(e)}
+            saveBookMark={(e) => saveBookMark(e)}
+            bookMark={bookMark}
+          />
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <h1>Season 2 Namaste JavaScript</h1>
+          </div>
+          <Playlist
+            vidsData={
+              season2 &&
+              season2.filter((x) =>
+                x.snippet.title.toLowerCase().includes(search.toLowerCase())
+              )
+            }
             setSelected={(e) => videoControler(e)}
             saveBookMark={(e) => saveBookMark(e)}
             bookMark={bookMark}
